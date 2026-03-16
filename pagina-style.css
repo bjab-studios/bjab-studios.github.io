@@ -1,0 +1,64 @@
+/* 1. Estilo general de la página */
+body {
+    background-color: #121212; /* Fondo casi negro */
+    color: #e0e0e0;           /* Texto gris claro para que no canse la vista */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    text-align: center;       /* Centra todo el contenido */
+}
+
+/*Títulos*/
+h1 {
+    color: #7501d4;           
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+h2, h3 {
+    color: #cf3c86;           
+    margin-top: 40px;
+}
+
+/*Estilo de los links/Botones */
+a {
+    display: inline-block;
+    background-color: #242323;
+    color: #7501d4;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    text-decoration: none;    /* Quita el subrayado feo */
+    border: 2px solid #530097;
+    border-radius: 8px;       /* Bordes redondeados */
+    font-weight: bold;
+    transition: 0.3s;         /* Animación suave */
+}
+
+/* Efecto cuando pasas el mouse por encima */
+a:hover {
+    background-color: #530097;
+    color: #121212;
+    transform: scale(1.05);   /* Se agranda un poquito */
+}
+
+/* 4. Listas y Notas */
+ul {
+    list-style: none;         /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+small {
+    color: #888;
+    display: block;
+    margin-top: 10px;
+}
+
+/* 5. Imagen */
+img {
+    border-radius: 15px;
+    border: 3px solid #530097;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Sombra para que flote */
+}
