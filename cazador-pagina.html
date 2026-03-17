@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="imagenes/file_0000000047746230a06baa1d5e3ba0de.png">
     <title>Cazador de dioses | BJAB Studios</title>
-    <link rel="stylesheet" href="pagina-style.css"> <!-- Usamos el mismo CSS gamer -->
+    <link rel="stylesheet" href="pagina-style.css"> 
 </head>
 <body>
 
@@ -14,9 +14,74 @@
     </nav>
 
     <header>
-        <h1>Cazador de dioses</h1>
-        <p class="tagline">La versión definitiva creada por BJAB Studios</p>
-    </header>
+    <h1>Cazador de dioses</h1>
+
+    <!-- BOTÓN -->
+    <button onclick="mostrarHistoria()" class="boton-historia">
+        MENSAJE DE KRIXOS   
+    </button>
+
+    <!-- TEXTO OCULTO -->
+    <div class="tagline" id="historia" style="display:none;">
+
+        <p><strong>Escucha con atención, simple mortal, y no olvides palabra alguna, pues no todos los días un dios se digna a hablar de aquello que ni los cielos desean recordar.</strong></p>
+
+        <p><strong>En eras tan antiguas que ni vuestros imperios más viejos existían, hubo entre nosotros uno que se proclamaba el Dios de los Dioses, señor del firmamento y juez de toda divinidad.</strong></p>
+
+        <p><strong>Mas su poder creció demasiado, y su voluntad comenzó a imponerse incluso sobre quienes éramos sus iguales. Así pues, los dioses que hoy regimos el cielo nos reunimos en consejo y decidimos su destino.</strong></p>
+
+        <p><strong>Lo llevamos hasta el borde del firmamento, hasta el antiguo acantilado donde termina el dominio divino.</strong></p>
+
+        <p><strong>Allí fue juzgado… y hallado indigno.</strong></p>
+
+        <p><strong>Y entonces… lo arrojamos.</strong></p>
+
+        <p><strong>Cayó desde el cielo hacia el mundo inferior, hacia la tierra donde habitan vosotros, las bestias erguidas del imperio de Zorvathia: lobos, ciervos, felinos y aves que caminan como hombres bajo nuestra sombra.</strong></p>
+
+        <p><strong>Atravesó nubes, tormentas y silencio durante su caída, hasta estrellarse contra la tierra de los mortales.</strong></p>
+
+        <p><strong>Cuando abrió los ojos, no halló trono ni gloria celestial. A su lado yacía el cadáver de uno de vuestros guerreros… y junto a él, una espada abandonada.</strong></p>
+
+        <p><strong>El desterrado extendió la mano… y tomó aquella espada.</strong></p>
+
+        <p><strong>Desde aquel instante dejó de ser lo que una vez fue.</strong></p>
+
+        <p><strong>Algo cambió en él. Algo… que ni siquiera nosotros comprendimos.</strong></p>
+
+        <p><strong>Una figura divina nacida de la traición.</strong></p>
+
+        <p><strong>Al principio lo ignoramos. Pensamos que el mundo mortal lo consumiría.</strong></p>
+
+        <p><strong>Pero entonces… ocurrió lo impensable.</strong></p>
+
+        <p><strong>Uno de los nuestros cayó. Luego otro. Y después… otro más.</strong></p>
+
+        <p><strong>Dioses antiguos, señores de tormentas, guardianes de montañas y mares… uno por uno empezaron a caer.</strong></p>
+
+        <p><strong>Y cada vez que uno desaparecía, en los cielos se susurraba el mismo nombre.</strong></p>
+
+        <p><strong>Un nombre que incluso ahora… preferimos no pronunciar demasiado alto.</strong></p>
+
+        <p><strong>Porque desde el día en que tocó la tierra, aquel desterrado se convirtió en algo más.</strong></p>
+
+        <p><strong>Algo que incluso nosotros… tememos nombrar.</strong></p>
+
+        <p><strong>Una figura divina… nacida para la caza.</strong></p>
+
+        <p><strong>Y aunque gobierne el cielo, simple mortal, te confesaré una verdad que pocos dioses admitirían:</strong></p>
+
+        <p><strong>Cuando el trueno resuena sobre Zorvathia…<br>
+        cuando el silencio cae sobre los templos…<br>
+        cuando otro dios deja de responder a nuestras voces…</strong></p>
+
+        <p><strong>Hasta nosotros miramos hacia la tierra… con inquietud.</strong></p>
+
+        <p><strong>Pues sabemos que allá abajo camina aquel a quien vosotros llamáis…</strong></p>
+
+        <p><strong>…el Cazador de Dioses.</strong></p>
+
+    </div>
+</header>
 
     <main class="contenedor-presentacion">
         <!-- Sección de Imagen/Captura -->
@@ -25,6 +90,7 @@
         </section>
 
         <!-- Sección de Información -->
+        
         <section class="info-juego">
             <h2>Sobre el juego</h2>
             <p>Sumérgete en la experiencia más completa de BJAB.</p>
@@ -38,13 +104,25 @@
                 <p><strong>Categoría:</strong> Aventura / Metroidvania</p>
                 <p><strong>estado:</strong> Beta</p>
             </div>
-
+        </section>
             <!-- Botón de descarga gigante -->
             <div class="descarga-container">
-                <a href="TU_LINK_DE_MEDIAFIRE" class="boton-descarga">DESCARGAR AHORA</a>
+                <a href="todvia no hay juego " download class="boton-descarga">DESCARGAR AHORA</a>
             </div>
-        </section>
+        
     </main>
+
+<script>
+function mostrarHistoria() {
+    var historia = document.getElementById("historia");
+
+    if (historia.style.display === "none") {
+        historia.style.display = "block";
+    } else {
+        historia.style.display = "none";
+    }
+}
+</script>
 
     <footer>
         <p>© 2025 BJAB Studios - De la secundaria para el mundo.</p>
