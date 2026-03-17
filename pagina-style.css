@@ -1,12 +1,12 @@
 /* 1. Estilo general de la página */
 body {
-    background-color: #121212; /* Fondo casi negro */
-    color: #e0e0e0;           /* Texto gris claro para que no canse la vista */
+    background-color: #121212; 
+    color: #e0e0e0;           
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    text-align: center;       /* Centra todo el contenido */
+    text-align: center;       
 }
 
 /*Títulos*/
@@ -29,11 +29,11 @@ a {
     color: #7501d4;
     padding: 10px 20px;
     margin: 10px 5px;
-    text-decoration: none;    /* Quita el subrayado feo */
+    text-decoration: none;    /* saca el subrayado horrible */
     border: 2px solid #530097;
     border-radius: 8px;       /* Bordes redondeados */
     font-weight: bold;
-    transition: 0.3s;         /* Animación suave */
+    transition: 0.3s;         /* Animación */
 }
 
 /* Efecto cuando pasas el mouse por encima */
@@ -61,4 +61,47 @@ img {
     border: 3px solid #530097;
     margin-top: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Sombra para que flote */
+}
+
+.boton-historia{
+    display: inline-block;
+    background-color: #242323;
+    color: #7501d4;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    text-decoration: none;    /* Quita el subrayado horrible */
+    border: 2px solid #530097;
+    border-radius: 8px;       /* Bordes redondeados */
+    font-weight: bold;
+    transition: 0.3s; 
+}
+
+.boton-historia:hover{
+    background-color: #530097;
+    color: #121212;
+    transform: scale(1.05); 
+}
+
+.tagline{
+    max-width: 750px;      
+    margin: 40px auto;     
+    text-align: justify;  
+    line-height: 1.8;     
+    font-size: 18px;
+}
+
+.tagline p{
+    margin-bottom: 16px;   
+}
+
+.info-juego{
+    max-width: 750px;      
+    margin: 40px auto;     
+    text-align: justify;   
+    line-height: 1.8;      
+    font-size: 18px;
+}
+
+.info-juego p{
+    margin-bottom: 16px;   /
 }
