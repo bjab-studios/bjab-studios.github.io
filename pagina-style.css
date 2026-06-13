@@ -1,107 +1,497 @@
-/* 1. Estilo general de la página */
-body {
-    background-color: #121212; 
-    color: #e0e0e0;           
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-    text-align: center;       
+/* ============================
+   BJAB Studios — Estilos
+   ============================ */
+
+:root {
+    --bg: #0a0a0f;
+    --surface: #16131f;
+    --surface-2: #1e1a2b;
+    --purple: #8b1aff;
+    --pink: #ff3c96;
+    --cyan: #3ce8ff;
+    --text: #e8e6f0;
+    --muted: #9b96ab;
+    --border: rgba(139, 26, 255, 0.35);
 }
 
-/*Títulos*/
-h1 {
-    color: #7501d4;           
-    font-size: 3rem;
+* {
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139, 26, 255, 0.25), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(255, 60, 150, 0.12), transparent);
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* ============================
+   Header / Hero
+   ============================ */
+
+header {
+    padding: 90px 20px 70px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, transparent 60%, var(--bg) 100%),
+        repeating-linear-gradient(90deg, rgba(139,26,255,0.06) 0px, rgba(139,26,255,0.06) 1px, transparent 1px, transparent 60px);
+    pointer-events: none;
+}
+
+.eyebrow {
+    position: relative;
+    display: inline-block;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    color: var(--cyan);
+    margin-bottom: 18px;
+    opacity: 0.85;
+}
+
+h1 {
+    position: relative;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 18px;
+    background: linear-gradient(100deg, var(--purple) 10%, var(--pink) 50%, var(--cyan) 90%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 6s ease-in-out infinite alternate;
+}
+
+@keyframes shine {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+header p {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+}
+
+/* ============================
+   Layout / sections
+   ============================ */
+
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 70px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+section:last-of-type {
+    border-bottom: none;
 }
 
 h2, h3 {
-    color: #cf3c86;           
-    margin-top: 40px;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: var(--text);
+    margin: 0 0 8px;
+    position: relative;
+    display: inline-block;
 }
 
-/*Estilo de los links/Botones */
+h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    margin: 14px auto 0;
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+    border-radius: 2px;
+}
+
+/* ============================
+   Lista de juegos
+   ============================ */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 36px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 760px;
+}
+
+ul li {
+    display: flex;
+}
+
+/* ============================
+   Links / Botones
+   ============================ */
+
 a {
     display: inline-block;
-    background-color: #242323;
-    color: #7501d4;
-    padding: 10px 20px;
-    margin: 10px 5px;
-    text-decoration: none;    /* saca el subrayado horrible */
-    border: 2px solid #530097;
-    border-radius: 8px;       /* Bordes redondeados */
-    font-weight: bold;
-    transition: 0.3s;         /* Animación */
+    width: 100%;
+    background-color: var(--surface);
+    color: var(--text);
+    padding: 18px 22px;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
 }
 
-/* Efecto cuando pasas el mouse por encima */
+a:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
 a:hover {
-    background-color: #530097;
-    color: #121212;
-    transform: scale(1.05);   /* Se agranda un poquito */
+    color: #fff;
+    border-color: var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -10px rgba(255, 60, 150, 0.45), 0 0 0 1px var(--pink) inset;
 }
 
-/* 4. Listas y Notas */
-ul {
-    list-style: none;         /* Quita los puntos de la lista */
-    padding: 0;
+.boton-descarga {
+    position: relative;
 }
+
+.boton-descarga::before {
+    content: "↓";
+    margin-right: 8px;
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+ul li:first-child a {
+    background: linear-gradient(135deg, rgba(139,26,255,0.22), rgba(255,60,150,0.18));
+    border-color: var(--purple);
+    font-weight: 700;
+}
+
+ul li:first-child a::after {
+    content: "ÚLTIMA VERSIÓN";
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--cyan);
+    margin-top: 6px;
+}
+
+/* ============================
+   Notas
+   ============================ */
 
 small {
-    color: #888;
+    color: var(--muted);
     display: block;
-    margin-top: 10px;
+    margin-top: 28px;
+    font-size: 0.9rem;
 }
 
-/* 5. Imagen */
-img {
-    border-radius: 15px;
-    border: 3px solid #530097;
-    margin-top: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Sombra para que flote */
+small strong {
+    color: var(--cyan);
 }
 
-.boton-historia{
+/* ============================
+   Sección de apoyo
+   ============================ */
+
+.apoyo p {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.apoyo strong {
+    color: var(--cyan);
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.05em;
+    background: var(--surface-2);
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
     display: inline-block;
-    background-color: #242323;
-    color: #7501d4;
-    padding: 10px 20px;
+    margin-top: 8px;
+}
+
+img {
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    margin-top: 28px;
+    max-width: 100%;
+    box-shadow: 0 20px 50px -20px rgba(139, 26, 255, 0.5);
+}
+
+/* ============================
+   Footer
+   ============================ */
+
+footer {
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: 0.85rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ============================
+   Texto general (otras páginas)
+   ============================ */
+
+.boton-historia {
+    display: inline-block;
+    background-color: var(--surface);
+    color: var(--text);
+    padding: 14px 28px;
     margin: 10px 5px;
-    text-decoration: none;    /* Quita el subrayado horrible */
-    border: 2px solid #530097;
-    border-radius: 8px;       /* Bordes redondeados */
-    font-weight: bold;
-    transition: 0.3s; 
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-weight: 600;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.boton-historia:hover{
-    background-color: #530097;
-    color: #121212;
-    transform: scale(1.05); 
+.boton-historia:hover {
+    color: #fff;
+    border-color: var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px -10px rgba(255, 60, 150, 0.45);
 }
 
-.tagline{
-    max-width: 750px;      
-    margin: 40px auto;     
-    text-align: justify;  
-    line-height: 1.8;     
-    font-size: 18px;
+.tagline,
+.info-juego {
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: left;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--text);
 }
 
-.tagline p{
-    margin-bottom: 16px;   
+.tagline p,
+.info-juego p {
+    margin-bottom: 16px;
 }
 
-.info-juego{
-    max-width: 750px;      
-    margin: 40px auto;     
-    text-align: justify;   
-    line-height: 1.8;      
-    font-size: 18px;
+/* ============================
+   Navegación
+   ============================ */
+
+nav {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px 20px 0;
+    text-align: left;
 }
 
-.info-juego p{
-    margin-bottom: 16px;   /
+.boton-volver {
+    display: inline-block;
+    border: none;
+    background: none;
+    color: var(--muted);
+    padding: 8px 0;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.boton-volver:hover {
+    color: var(--cyan);
+    border: none;
+    box-shadow: none;
+    transform: translateX(-4px);
+    background: none;
+}
+
+.boton-volver:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+/* ============================
+   Header de página de juego
+   ============================ */
+
+.header-juego {
+    padding-top: 50px;
+}
+
+.header-juego h1 {
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+}
+
+/* ============================
+   Mensaje de Krixos (historia)
+   ============================ */
+
+.tagline {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px clamp(20px, 5vw, 48px);
+    box-shadow: 0 20px 50px -25px rgba(139, 26, 255, 0.6);
+}
+
+.tagline p {
+    color: var(--text);
+}
+
+.tagline p:last-child {
+    margin-bottom: 0;
+    color: var(--pink);
+}
+
+.historia-oculta {
+    display: none;
+}
+
+#historia:not(.historia-oculta) {
+    animation: aparecer 0.4s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================
+   Presentación del juego
+   ============================ */
+
+.contenedor-presentacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.visual {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.img-presentacion {
+    width: 100%;
+    max-width: 700px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* ============================
+   Detalles del juego
+   ============================ */
+
+.detalles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.detalle-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.detalle-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cyan);
+}
+
+.detalle-valor {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.estado-beta {
+    color: var(--pink);
+}
+
+/* ============================
+   Descarga
+   ============================ */
+
+.descarga-container {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.descarga-container .boton-descarga {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    padding: 22px 48px;
+    max-width: 360px;
+}
+
+.boton-proximamente {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.boton-proximamente::before {
+    content: "⏳";
+    margin-right: 8px;
+}
+
+.nota-descarga {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 14px;
 }
