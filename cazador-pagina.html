@@ -92,12 +92,252 @@
         </div>
     </main>
 
+    <!-- Botón flotante de progreso -->
+    <button id="btn-progreso" onclick="toggleProgreso()" aria-expanded="false" aria-controls="panel-progreso" title="Ver progreso del desarrollo">
+        DEV
+    </button>
+
+    <!-- Panel lateral de progreso -->
+    <aside id="panel-progreso" aria-hidden="true">
+        <div class="panel-header">
+            <span class="panel-titulo">Progreso</span>
+            <button class="panel-cerrar" onclick="toggleProgreso()" aria-label="Cerrar panel">✕</button>
+        </div>
+        <p class="panel-subtitulo">Estado actual del desarrollo</p>
+
+        <div class="progreso-lista">
+
+            <div class="progreso-item">
+                <div class="progreso-meta">
+                    <span class="progreso-nombre">Historia y lore</span>
+                    <span class="progreso-pct">25%</span>
+                </div>
+                <div class="barra-fondo">
+                    <div class="barra-relleno" data-pct="25" style="--pct:0%"></div>
+                </div>
+            </div>
+
+            <div class="progreso-item">
+                <div class="progreso-meta">
+                    <span class="progreso-nombre">Combate y mecánicas</span>
+                    <span class="progreso-pct">2%</span>
+                </div>
+                <div class="barra-fondo">
+                    <div class="barra-relleno" data-pct="2" style="--pct:0%"></div>
+                </div>
+            </div>
+
+            <div class="progreso-item">
+                <div class="progreso-meta">
+                    <span class="progreso-nombre">Arte y música</span>
+                    <span class="progreso-pct">1%</span>
+                </div>
+                <div class="barra-fondo">
+                    <div class="barra-relleno" data-pct="1" style="--pct:0%"></div>
+                </div>
+            </div>
+
+            <div class="progreso-item">
+                <div class="progreso-meta">
+                    <span class="progreso-nombre">Mundo / mapa</span>
+                    <span class="progreso-pct">1%</span>
+                </div>
+                <div class="barra-fondo">
+                    <div class="barra-relleno" data-pct="1" style="--pct:0%"></div>
+                </div>
+            </div>
+
+            <div class="progreso-item">
+                <div class="progreso-meta">
+                    <span class="progreso-nombre">Jefes</span>
+                    <span class="progreso-pct">0%</span>
+                </div>
+                <div class="barra-fondo">
+                    <div class="barra-relleno" data-pct="0" style="--pct:0%"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="panel-nota">El juego está en desarrollo activo. ¡Los números van a ir subiendo!</p>
+    </aside>
+
+    <style>
+        #btn-progreso {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--surface);
+            color: var(--cyan);
+            border: 1px solid var(--border);
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+            padding: 14px 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+            z-index: 100;
+        }
+
+        #btn-progreso:hover {
+            background: var(--surface-2);
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
+        #panel-progreso {
+            position: fixed;
+            right: -320px;
+            top: 0;
+            height: 100%;
+            width: 300px;
+            background: var(--surface);
+            border-left: 1px solid var(--border);
+            padding: 28px 24px;
+            z-index: 99;
+            transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        #panel-progreso.abierto {
+            right: 0;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .panel-titulo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .panel-cerrar {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+            transition: color 0.2s ease;
+        }
+
+        .panel-cerrar:hover {
+            color: var(--pink);
+        }
+
+        .panel-subtitulo {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin: 0 0 28px;
+        }
+
+        .progreso-lista {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .progreso-item {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .progreso-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .progreso-nombre {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .progreso-pct {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--cyan);
+        }
+
+        .barra-fondo {
+            height: 6px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .barra-relleno {
+            height: 100%;
+            width: var(--pct);
+            background: linear-gradient(90deg, var(--purple), var(--pink));
+            border-radius: 99px;
+            transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .panel-nota {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 28px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #panel-progreso { transition: none; }
+            .barra-relleno  { transition: none; }
+        }
+    </style>
+
     <script>
         function mostrarHistoria() {
             var historia = document.getElementById("historia");
             var boton = document.getElementById("boton-mensaje");
             var oculto = historia.classList.toggle("historia-oculta");
             boton.setAttribute("aria-expanded", String(!oculto));
+        }
+
+        var panelAbierto = false;
+
+        function toggleProgreso() {
+            var panel = document.getElementById("panel-progreso");
+            var btn   = document.getElementById("btn-progreso");
+            panelAbierto = !panelAbierto;
+            panel.classList.toggle("abierto", panelAbierto);
+            panel.setAttribute("aria-hidden", String(!panelAbierto));
+            btn.setAttribute("aria-expanded", String(panelAbierto));
+
+            if (panelAbierto) {
+                // Animar barras después de que el panel deslice
+                setTimeout(function() {
+                    document.querySelectorAll(".barra-relleno").forEach(function(barra) {
+                        barra.style.setProperty("--pct", barra.dataset.pct + "%");
+                    });
+                }, 150);
+            } else {
+                document.querySelectorAll(".barra-relleno").forEach(function(barra) {
+                    barra.style.setProperty("--pct", "0%");
+                });
+            }
         }
     </script>
 
